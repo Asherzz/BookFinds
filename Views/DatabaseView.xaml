@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="BookFind.Views.DatabaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookFind.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+
+            <TextBox  TextChanged="Search_TextChanged" 
+                     Margin="5"
+                     Width="150" 
+                     Name="Search"/>
+            <ComboBox SelectionChanged="CbFilter_SelectionChanged"
+                      DisplayMemberPath="Name" 
+                      Margin="5" 
+                      SelectedIndex="0"
+                      Width="150" 
+                      Name="CbFilter"/>
+            <ComboBox SelectionChanged="CbSort_SelectionChanged"
+                      Margin="5" SelectedIndex="0"
+                      Width="150" 
+                      Name="CbSort"/>
+            <Button  Background="#e7fabf" Content="Добавить" x:Name="btnAdd" Click="btnAdd_Click"  Margin="0,5,0,5" Width="150"/>
+        </StackPanel>
+        <ListView Name="lvBooks" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush ="#00b1e2" BorderThickness="1" Margin ="10" Padding="5">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <StackPanel>
+                                    <ListBox ItemsSource="{Binding photos}" Height="200" Width="200" Background="#e7fabf" 
+                                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                             ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                                             HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"
+                                             >
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Image Grid.Column="1" Width="200" Height="200" >
+                                                    <Image.Source>
+                                                        <Binding Path="Photo">
+                                                            <Binding.TargetNullValue>
+                                                                <BitmapImage UriSource="../Images/school_logo.png"></BitmapImage>
+                                                            </Binding.TargetNullValue>
+                                                        </Binding>
+                                                    </Image.Source>
+                                                </Image>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </StackPanel>
+                                <StackPanel>
+
+                                    <TextBlock FontSize="14" FontWeight="Bold">
+                            <Run Text = "{Binding ID}" />
+                            <Run Text = " | "/>
+                            <Run Text = "Наименование:"/>
+                            <Run Text = "{Binding Title}" />
+                                    </TextBlock>
+                                    <TextBlock Text="Срок годности:" FontWeight="Bold"/>
+                                    <TextBlock Text ="{Binding Cost}" FontSize="14" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Брэнд:" FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding IsActive}" FontSize="14"/>
+                                    <Button  Background="#00b1e2" Name="btnEdit" Content="Редактировать" Margin="5 5 5 5 " Click="btnEdit_Click"/>
+                                    <Button  Background="#00b1e2" Name="btnDelete" Content="Удалить" Margin="5 5 5 5 " Click="btnDelete_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

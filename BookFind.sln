@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookFind", "BookFind.csproj", "{DF9ACA32-AF36-486B-892E-8C7BB5912D7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF9ACA32-AF36-486B-892E-8C7BB5912D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9ACA32-AF36-486B-892E-8C7BB5912D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9ACA32-AF36-486B-892E-8C7BB5912D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9ACA32-AF36-486B-892E-8C7BB5912D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90B32650-72A8-447A-93F3-CAA4D3E60299}
+	EndGlobalSection
+EndGlobal
